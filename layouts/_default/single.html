@@ -66,6 +66,13 @@
   </div>
   <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
     {{ partial "header.html" . }}
+    {{ if isset .Params "cover" }}
+    <p>
+    <div class="image">
+      <img width="100%;" src="{{ .Params.cover }}" alt="{{ .Title }}" />
+    </div>
+    </p>
+    {{ end }}
   </div>
 </div>
 {{ end }}
