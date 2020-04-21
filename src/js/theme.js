@@ -93,21 +93,29 @@ const iconSwitchs = $('.theme-switch').toArray()
 // Apply theme when first entering
 if (isDark) {
   iconSwitchs.forEach((s) => $(s).addClass('moon'))
+  $('.darkonly').show();
+  $('.lightonly').hide();
   toggleDark()
 } else {
   iconSwitchs.forEach((s) => $(s).addClass('sun'))
+  $('.darkonly').show();
+  $('.lightonly').hide();
 }
 
 const themeSwitch = () => {
   if (isDark) {
     iconSwitchs.forEach((s) => $(s).removeClass('moon'))
     iconSwitchs.forEach((s) => $(s).addClass('sun'))
+    $('.darkonly').hide();
+    $('.lightonly').show();
     localStore.removeItem('hugo-theme-dream-is-dark')
     isDark = null
   } else {
     iconSwitchs.forEach((s) => $(s).removeClass('sun'))
     iconSwitchs.forEach((s) => $(s).addClass('moon'))
     localStore.setItem('hugo-theme-dream-is-dark', 'y')
+    $('.darkonly').show();
+    $('.lightonly').hide();
     isDark = 'y'
   }
 
