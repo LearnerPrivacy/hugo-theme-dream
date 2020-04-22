@@ -100,8 +100,8 @@ if (isDark) {
   iconSwitchs.forEach(function (s) {
     return $(s).addClass('sun');
   });
-  $('.darkonly').show();
-  $('.lightonly').hide();
+  $('.darkonly').hide();
+  $('.lightonly').show();
 }
 
 var themeSwitch = function themeSwitch() {

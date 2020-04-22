@@ -1,7 +1,10 @@
 <article class="dream-header">
   <section class="ui top attached center aligned segment">
     <div class="ui small image">
-      {{ if isset .Site.Params "avatar" }}
+      {{ if isset .Site.Params "avatar_dark" }}
+        <img src="{{ .Site.Params.avatar }}" class="lightonly" style="display:none;">
+        <img src="{{ .Site.Params.avatar_dark }}" class="darkonly" style="display:none;">
+      {{ else if isset .Site.Params "avatar" }}
         <img src="{{ .Site.Params.avatar }}">
       {{ end }}
       <!--

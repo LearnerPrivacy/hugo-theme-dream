@@ -98,8 +98,8 @@ if (isDark) {
   toggleDark()
 } else {
   iconSwitchs.forEach((s) => $(s).addClass('sun'))
-  $('.darkonly').show();
-  $('.lightonly').hide();
+  $('.darkonly').hide();
+  $('.lightonly').show();
 }
 
 const themeSwitch = () => {
