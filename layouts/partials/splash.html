@@ -42,11 +42,15 @@
     var clientHeight = document.getElementById('dream-splash-image').clientHeight;
     var clientWidth = document.getElementById('dream-splash-image').clientWidth;
     console.log('Seen', seenSplash, clientHeight, clientWidth, windowHeight, windowWidth);
-    if ( clientHeight < windowHeight * 0.85 ) {
+    if ( seenSplash == 'xtrue' ) {
         document.getElementById('dream-splash').style.display = "none";
-    } else if ( clientWidth < windowHeight * 0.85 ) {
+    } else if ( clientHeight < (windowHeight * 0.80) ) {
+        console.log('Screen too tall for splash');
         document.getElementById('dream-splash').style.display = "none";
-    } else if (seenSplash != "true" ) {
+    } else if ( windowWidth < 500 ) {
+        console.log('Screen not wide enough for splash');
+        document.getElementById('dream-splash').style.display = "none";
+    } else {
         document.getElementById('dream-splash').style.opacity = 1.0;
         createSplashCookie('seenSplash', 'true', 10);
         setTimeout(function(){ $("#dream-splash").fadeOut("slow"); }, 5000);
