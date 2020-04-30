@@ -42,7 +42,7 @@
     var clientHeight = document.getElementById('dream-splash-image').clientHeight;
     var clientWidth = document.getElementById('dream-splash-image').clientWidth;
     console.log('Seen', seenSplash, clientHeight, clientWidth, windowHeight, windowWidth);
-    if ( seenSplash == 'xtrue' ) {
+    if ( seenSplash == 'true' ) {
         document.getElementById('dream-splash').style.display = "none";
     } else if ( clientHeight < (windowHeight * 0.80) ) {
         console.log('Screen too tall for splash');
