@@ -37,11 +37,11 @@
         return document.cookie.replace(/(?:(?:^|.*;\s*)seenSplash\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     }
     var seenSplash = getSplashCookie();
-    console.log('Seen', seenSplash);
     var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     var clientHeight = document.getElementById('dream-splash-image').clientHeight;
     var clientWidth = document.getElementById('dream-splash-image').clientWidth;
+    console.log('Seen', seenSplash, clientHeight, clientWidth, windowHeight, windowWidth);
     if ( clientHeight < windowHeight * 0.85 ) {
         document.getElementById('dream-splash').style.display = "none";
     } else if ( clientWidth < windowHeight * 0.85 ) {
