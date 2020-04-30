@@ -1,0 +1,54 @@
+<style>
+.dream-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: block;
+  opacity: 0.0;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+}
+.dream-splash-image {
+    width:90%;margin-top: 50px; border:3px solid black;
+}
+</style>
+
+<div id="dream-splash" class="dream-overlay" 
+  onclick="$('#dream-splash').fadeOut(1000);">
+  <img src="{{ .Site.Params.splashImage }}" id="dream-splash-image" class="dream-splash-image">
+ </div>
+ <script>
+     // https://stackoverflow.com/a/6562055
+    function createSplashCookie(name, value, days) {
+        var date, expires;
+        if (days) {
+            date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            expires = "; expires="+date.toGMTString();
+        } else {
+            expires = "";
+        }
+        document.cookie = name+"="+value+expires+"; path=/";
+    }
+    function getSplashCookie() {
+        return document.cookie.replace(/(?:(?:^|.*;\s*)seenSplash\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    }
+    var seenSplash = getSplashCookie();
+    console.log('Seen', seenSplash);
+    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    var clientHeight = document.getElementById('dream-splash-image').clientHeight;
+    var clientWidth = document.getElementById('dream-splash-image').clientWidth;
+    if ( clientHeight < windowHeight * 0.85 ) {
+        document.getElementById('dream-splash').style.display = "none";
+    } else if ( clientWidth < windowHeight * 0.85 ) {
+        document.getElementById('dream-splash').style.display = "none";
+    } else if (seenSplash != "true" ) {
+        document.getElementById('dream-splash').style.opacity = 1.0;
+        createSplashCookie('seenSplash', 'true', 10);
+        setTimeout(function(){ $("#dream-splash").fadeOut("slow"); }, 5000);
+    }
+</script>

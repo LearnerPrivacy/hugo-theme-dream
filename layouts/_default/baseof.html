@@ -7,18 +7,32 @@
     <title>{{ block "title" . }} {{- .Site.Title -}} {{ end }}</title>
 
     {{ partial "head.html" . }}
-  {{ if .Site.Params.backgroundImage }}
-<style>
-html {
-    background-color: black;
-    background: url({{ .Site.Params.backgroundImage }}) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
-{{ end }}
+    {{ if .Site.Params.backgroundImage }}
+    <style>
+    html {
+        background-color: black;
+        background: url({{ .Site.Params.backgroundImage }}) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    </style>
+    {{ end }}
+
+    {{ if .Site.Params.backgroundImage }}
+    <style>
+    html {
+        background-color: black;
+        background: url({{ .Site.Params.backgroundImage }}) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    </style>
+    {{ end }}
+
   </head>
 
   {{ if .Site.Params.background }}
@@ -28,6 +42,9 @@ html {
   {{ else }}
   <body>
   {{ end }}
+    {{ if .Site.Params.splashImage }}
+       {{ partial "splash.html" . }}
+    {{ end }}
     <div class="flip-container">
       <div class="flipper">
         <section class="front">
