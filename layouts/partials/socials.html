@@ -1,16 +1,8 @@
 <nav class="ui secondary menu dream-menu dream-socials">
-  {{ if .Site.Params.email }}
+  {{ if .Site.Params.podcast }}
     <div class="item">
-      <a href="mailto:{{ .Site.Params.email }}" aria-label="email">
-        <i class="{{ .IconSize }} mail icon" title="email"></i>
-      </a>
-    </div>
-  {{ end }}
-
-  {{ if .Site.Params.twitter }}
-    <div class="item">
-      <a href="https://twitter.com/{{ .Site.Params.twitter }}" aria-label="twitter" target="_blank">
-        <i class="{{ .IconSize }} twitter icon" title="twitter"></i>
+      <a href="{{ .Site.Params.podcast }}" aria-label="podcast" target="_blank">
+        <i class="{{ .IconSize }} podcast icon" title="podcast"></i>
       </a>
     </div>
   {{ end }}
@@ -19,6 +11,14 @@
     <div class="item">
       <a href="https://facebook.com/{{ .Site.Params.facebook }}" aria-label="facebook" target="_blank">
         <i class="{{ .IconSize }} facebook icon" title="facebook"></i>
+      </a>
+    </div>
+  {{ end }}
+
+  {{ if .Site.Params.patreon }}
+    <div class="item">
+      <a href="https://patreon.com/{{ .Site.Params.patreon }}" aria-label="patreon" target="_blank">
+        <i class="{{ .IconSize }} patreon icon" title="patreon"></i>
       </a>
     </div>
   {{ end }}
@@ -46,6 +46,23 @@
       </a>
     </div>
   {{ end }}
+
+  {{ if .Site.Params.email }}
+    <div class="item">
+      <a href="mailto:{{ .Site.Params.email }}" aria-label="email">
+        <i class="{{ .IconSize }} mail icon" title="email"></i>
+      </a>
+    </div>
+  {{ end }}
+
+  {{ if .Site.Params.twitter }}
+    <div class="item">
+      <a href="https://twitter.com/{{ .Site.Params.twitter }}" aria-label="twitter" target="_blank">
+        <i class="{{ .IconSize }} twitter icon" title="twitter"></i>
+      </a>
+    </div>
+  {{ end }}
+
 
   {{ if .Site.Params.stackoverflow }}
     <div class="item">
